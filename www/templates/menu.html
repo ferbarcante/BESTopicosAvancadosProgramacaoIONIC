@@ -1,0 +1,41 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+  <!-- Conteúdo principal (telas filhas do estado "app") -->
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-ucsal">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- Menu lateral -->
+  <ion-side-menu side="left" class="menu">
+    <ion-content>
+      <div class="menu-cabecalho">
+        <div class="avatar">{{ iniciais() }}</div>
+        <h2>{{ alunoLogado.nome }}</h2>
+        <p>Matrícula {{ alunoLogado.matricula }}</p>
+        <p>{{ alunoLogado.curso }}</p>
+      </div>
+
+      <ion-list>
+        <ion-item menu-close class="item-icon-left" ui-sref="app.noticias">
+          <i class="icon ion-ios-home-outline"></i> Mural UCSal
+        </ion-item>
+        <ion-item menu-close class="item-icon-left" ui-sref="app.perfil">
+          <i class="icon ion-ios-person-outline"></i> Meu Cadastro
+        </ion-item>
+        <ion-item menu-close class="item-icon-left" ui-sref="app.financeiro">
+          <i class="icon ion-card"></i> Financeiro
+        </ion-item>
+        <ion-item menu-close class="item-icon-left item-sair" ng-click="sair()">
+          <i class="icon ion-log-out"></i> Sair
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>

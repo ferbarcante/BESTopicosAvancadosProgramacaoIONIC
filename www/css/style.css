@@ -1,0 +1,479 @@
+/* ==========================================================================
+   Portal do Aluno UCSal - Identidade visual
+   Cores institucionais: azul marinho, azul claro e branco
+   ========================================================================== */
+
+:root {
+  --ucsal-azul-marinho: #0b2a5b;
+  --ucsal-azul-marinho-escuro: #071d40;
+  --ucsal-azul-claro: #3fa9f5;
+  --ucsal-azul-claro-suave: #e6f3fd;
+  --ucsal-branco: #ffffff;
+  --ucsal-fundo: #f3f6fa;
+  --ucsal-texto: #1d2733;
+  --ucsal-texto-suave: #5f6b7a;
+
+  --status-paga: #1e9e5a;
+  --status-paga-fundo: #e3f6ec;
+  --status-apagar: #e68a00;
+  --status-apagar-fundo: #fff3e0;
+  --erro: #d8343f;
+  --erro-fundo: #fde8ea;
+
+  --raio: 12px;
+}
+
+body,
+.pane,
+.view {
+  background-color: var(--ucsal-fundo);
+  color: var(--ucsal-texto);
+}
+
+/* --------------------------------------------------------------------------
+   Barras (header) e botões no tema UCSal
+   -------------------------------------------------------------------------- */
+.bar.bar-ucsal {
+  background-color: var(--ucsal-azul-marinho);
+  background-image: none;
+  border-color: var(--ucsal-azul-marinho-escuro);
+}
+.bar.bar-ucsal .title,
+.bar.bar-ucsal .button,
+.bar.bar-ucsal .button.button-clear,
+.bar.bar-ucsal .button .icon:before {
+  color: var(--ucsal-branco);
+}
+
+.button.button-ucsal {
+  background-color: var(--ucsal-azul-marinho);
+  border-color: var(--ucsal-azul-marinho);
+  color: var(--ucsal-branco);
+  border-radius: 8px;
+}
+.button.button-ucsal.activated {
+  background-color: var(--ucsal-azul-marinho-escuro);
+}
+.button.button-ucsal-claro {
+  background-color: var(--ucsal-azul-claro);
+  border-color: var(--ucsal-azul-claro);
+  color: var(--ucsal-branco);
+  border-radius: 8px;
+}
+.button.button-ucsal-outline {
+  background: transparent;
+  border: 1px solid var(--ucsal-azul-marinho);
+  color: var(--ucsal-azul-marinho);
+  border-radius: 8px;
+}
+.button.button-ucsal-outline.ativo {
+  background-color: var(--ucsal-azul-marinho);
+  color: var(--ucsal-branco);
+}
+
+.button.disabled,
+.button[disabled] {
+  opacity: 0.5;
+}
+
+/* --------------------------------------------------------------------------
+   Login
+   -------------------------------------------------------------------------- */
+.login-pane {
+  background: linear-gradient(160deg, var(--ucsal-azul-marinho) 0%, var(--ucsal-azul-marinho-escuro) 55%, #0f3d7a 100%);
+}
+.login-conteudo {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 48px 20px 24px;
+}
+.login-logo {
+  text-align: center;
+  color: var(--ucsal-branco);
+  margin-bottom: 28px;
+}
+.login-logo img {
+  width: 88px;
+  height: 88px;
+}
+.login-logo h1 {
+  color: var(--ucsal-branco);
+  font-size: 26px;
+  font-weight: 700;
+  margin: 12px 0 4px;
+  letter-spacing: 0.5px;
+}
+.login-logo p {
+  color: #b9d3f2;
+  margin: 0;
+}
+.login-card {
+  background: var(--ucsal-branco);
+  border-radius: var(--raio);
+  padding: 20px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.login-card .list {
+  margin-bottom: 16px;
+}
+.login-card .item-input {
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #d6dde6;
+}
+.login-card .item-input.campo-invalido {
+  border-color: var(--erro);
+}
+.login-dica {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--ucsal-texto-suave);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Mensagens de feedback (erro / sucesso)
+   -------------------------------------------------------------------------- */
+.mensagem {
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+.mensagem .icon {
+  margin-right: 6px;
+}
+.mensagem-erro {
+  background: var(--erro-fundo);
+  color: var(--erro);
+}
+.mensagem-sucesso {
+  background: var(--status-paga-fundo);
+  color: var(--status-paga);
+}
+
+/* --------------------------------------------------------------------------
+   Menu lateral
+   -------------------------------------------------------------------------- */
+.menu-cabecalho {
+  background: linear-gradient(160deg, var(--ucsal-azul-marinho), #14478f);
+  color: var(--ucsal-branco);
+  padding: 28px 16px 18px;
+}
+.menu-cabecalho .avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ucsal-azul-claro);
+  color: var(--ucsal-branco);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 56px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.menu-cabecalho h2 {
+  color: var(--ucsal-branco);
+  font-size: 17px;
+  margin: 0 0 2px;
+}
+.menu-cabecalho p {
+  color: #b9d3f2;
+  margin: 0;
+  font-size: 13px;
+}
+.menu .item .icon {
+  color: var(--ucsal-azul-marinho);
+}
+.menu .item.item-sair,
+.menu .item.item-sair .icon {
+  color: var(--erro);
+}
+
+/* --------------------------------------------------------------------------
+   Mural de notícias (cards)
+   -------------------------------------------------------------------------- */
+.filtro-categorias {
+  display: flex;
+  gap: 8px;
+  padding: 12px 12px 0;
+}
+.filtro-categorias .button {
+  flex: 1;
+  min-height: 34px;
+  line-height: 32px;
+  font-size: 13px;
+}
+
+.card.card-noticia {
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(11, 42, 91, 0.08);
+}
+.card-noticia .item-image img {
+  height: 160px;
+  object-fit: cover;
+}
+.card-noticia .item-body h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ucsal-azul-marinho);
+  white-space: normal;
+  margin-bottom: 6px;
+}
+.card-noticia .item-body p {
+  color: var(--ucsal-texto-suave);
+  white-space: normal;
+}
+.card-noticia .tab-item {
+  color: var(--ucsal-azul-marinho);
+  font-weight: 700;
+  font-size: 15px;
+  opacity: 1;
+}
+.card-noticia .tab-item .icon {
+  color: var(--ucsal-azul-claro);
+}
+.card-noticia .meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--ucsal-texto-suave);
+  margin-bottom: 8px;
+}
+
+/* Badges de categoria */
+.badge-categoria {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-categoria.categoria-noticia {
+  background: var(--ucsal-azul-claro-suave);
+  color: var(--ucsal-azul-marinho);
+}
+.badge-categoria.categoria-evento {
+  background: var(--ucsal-azul-marinho);
+  color: var(--ucsal-branco);
+}
+
+.estado-vazio {
+  text-align: center;
+  color: var(--ucsal-texto-suave);
+  padding: 40px 20px;
+}
+.estado-vazio .icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 8px;
+  color: #a9b6c6;
+}
+
+/* Detalhe da notícia */
+.detalhe-imagem {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.detalhe-conteudo {
+  padding: 16px;
+  background: var(--ucsal-branco);
+}
+.detalhe-conteudo h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ucsal-azul-marinho);
+  margin: 10px 0;
+}
+.detalhe-conteudo .info {
+  color: var(--ucsal-texto-suave);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.detalhe-conteudo .info .icon {
+  margin-right: 6px;
+  color: var(--ucsal-azul-claro);
+}
+.detalhe-conteudo .texto p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   Perfil / atualização cadastral
+   -------------------------------------------------------------------------- */
+.secao-titulo {
+  padding: 18px 16px 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--ucsal-azul-marinho);
+}
+.list.list-ucsal {
+  margin: 0 12px;
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(11, 42, 91, 0.06);
+}
+.list-ucsal .item {
+  background-color: var(--ucsal-branco);
+  border-color: #e6ebf1;
+}
+.list-ucsal .item-input input[disabled] {
+  background: transparent;
+  color: var(--ucsal-texto-suave);
+}
+.list-ucsal .item-input .input-label .icon {
+  color: var(--ucsal-azul-claro);
+  margin-right: 4px;
+}
+.list-ucsal .item-input .icone-bloqueado {
+  color: #a9b6c6;
+  font-size: 18px;
+}
+.list-ucsal .item-input.campo-invalido {
+  background: var(--erro-fundo);
+}
+.ajuda-campo {
+  font-size: 12px;
+  color: var(--erro);
+  padding: 4px 16px 0;
+}
+.acoes-rodape {
+  padding: 20px 12px 30px;
+}
+
+/* --------------------------------------------------------------------------
+   Financeiro
+   -------------------------------------------------------------------------- */
+.seletor-semestre {
+  margin: 12px;
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+.seletor-semestre .item-select select {
+  color: var(--ucsal-azul-marinho);
+  font-weight: 700;
+}
+
+.resumo-financeiro {
+  display: flex;
+  gap: 10px;
+  padding: 0 12px;
+}
+.resumo-financeiro .resumo-item {
+  flex: 1;
+  background: var(--ucsal-branco);
+  border-radius: var(--raio);
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(11, 42, 91, 0.06);
+}
+.resumo-item .rotulo {
+  font-size: 12px;
+  color: var(--ucsal-texto-suave);
+}
+.resumo-item .valor {
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.resumo-item.resumo-paga .valor {
+  color: var(--status-paga);
+}
+.resumo-item.resumo-apagar .valor {
+  color: var(--status-apagar);
+}
+
+.card.card-mensalidade {
+  border-radius: var(--raio);
+  border-left: 5px solid #ccc;
+  box-shadow: 0 2px 10px rgba(11, 42, 91, 0.06);
+}
+.card-mensalidade.mensalidade-paga {
+  border-left-color: var(--status-paga);
+}
+.card-mensalidade.mensalidade-apagar {
+  border-left-color: var(--status-apagar);
+}
+.card-mensalidade .cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-mensalidade .mes {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ucsal-azul-marinho);
+}
+.card-mensalidade .vencimento {
+  font-size: 13px;
+  color: var(--ucsal-texto-suave);
+  margin-top: 2px;
+}
+.card-mensalidade .valor-parcela {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+.card-mensalidade .linha-digitavel {
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 12px;
+  background: var(--ucsal-fundo);
+  padding: 8px;
+  border-radius: 6px;
+  word-break: break-all;
+  margin: 10px 0 8px;
+  color: var(--ucsal-texto);
+}
+.card-mensalidade .pagamento-info {
+  font-size: 13px;
+  color: var(--status-paga);
+  margin-top: 6px;
+}
+
+/* Badges de status (Paga = verde, A Pagar = laranja) */
+.badge-status {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.badge-status.status-paga {
+  background: var(--status-paga-fundo);
+  color: var(--status-paga);
+}
+.badge-status.status-apagar {
+  background: var(--status-apagar-fundo);
+  color: var(--status-apagar);
+}
+
+.button.button-copiar {
+  background: var(--status-apagar);
+  border-color: var(--status-apagar);
+  color: var(--ucsal-branco);
+  border-radius: 8px;
+}
+.button.button-copiar.copiado {
+  background: var(--status-paga);
+  border-color: var(--status-paga);
+}
+
+/* Toast simples (via $ionicLoading) */
+.loading-container .loading {
+  border-radius: 10px;
+  background-color: rgba(11, 42, 91, 0.92);
+}
+
+/* Popups no tema UCSal */
+.popup-head {
+  border-bottom-color: var(--ucsal-azul-claro-suave);
+}
+.popup-buttons .button.button-ucsal {
+  border-radius: 6px;
+}
