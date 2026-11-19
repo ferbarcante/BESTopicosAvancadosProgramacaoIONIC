@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b2a5b"/><stop offset="1" stop-color="#13407f"/></linearGradient></defs>
+  <rect width="600" height="300" fill="url(#g)"/>
+  <circle cx="540" cy="40" r="110" fill="#fff" opacity=".06"/><circle cx="40" cy="280" r="90" fill="#fff" opacity=".06"/>
+  <rect x="240" y="80" width="24" height="110" rx="3" fill="#fff"/><rect x="270" y="65" width="28" height="125" rx="3" fill="#3fa9f5"/><rect x="304" y="85" width="22" height="105" rx="3" fill="#fff" opacity=".85"/><rect x="330" y="72" width="26" height="118" rx="3" fill="#c9dcf2" transform="rotate(8 343 131)"/><rect x="225" y="190" width="150" height="8" rx="4" fill="#fff"/>
+  <text x="300" y="255" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#fff">BIBLIOTECA</text>
+</svg>

@@ -1,0 +1,35 @@
+<ion-view view-title="{{ publicacao.categoria || 'Publicação' }}">
+  <ion-content>
+
+    <div ng-if="publicacao">
+      <img class="detalhe-imagem" ng-src="{{ publicacao.imagem }}" alt="{{ publicacao.titulo }}">
+
+      <div class="detalhe-conteudo">
+        <span class="badge-categoria"
+              ng-class="{ 'categoria-noticia': publicacao.categoria === 'Notícia',
+                          'categoria-evento': publicacao.categoria === 'Evento' }">
+          {{ publicacao.categoria }}
+        </span>
+
+        <h1>{{ publicacao.titulo }}</h1>
+
+        <div class="info">
+          <i class="icon ion-calendar"></i>{{ publicacao.data | date:'dd/MM/yyyy' }}
+        </div>
+        <div class="info" ng-show="publicacao.local">
+          <i class="icon ion-location"></i>{{ publicacao.local }}
+        </div>
+
+        <div class="texto">
+          <p ng-repeat="paragrafo in publicacao.conteudo">{{ paragrafo }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="estado-vazio" ng-if="!publicacao">
+      <i class="icon ion-sad-outline"></i>
+      Publicação não encontrada.
+    </div>
+
+  </ion-content>
+</ion-view>

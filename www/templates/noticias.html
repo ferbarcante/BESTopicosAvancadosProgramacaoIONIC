@@ -1,0 +1,50 @@
+<ion-view view-title="Mural UCSal">
+  <ion-content>
+    <ion-refresher pulling-text="Puxe para atualizar" on-refresh="atualizar()"></ion-refresher>
+
+    <!-- Filtro por categoria -->
+    <div class="filtro-categorias">
+      <button class="button button-ucsal-outline"
+              ng-class="{ ativo: filtro.categoria === '' }"
+              ng-click="selecionarCategoria('')">Todos</button>
+      <button class="button button-ucsal-outline"
+              ng-repeat="categoria in categorias"
+              ng-class="{ ativo: filtro.categoria === categoria }"
+              ng-click="selecionarCategoria(categoria)">{{ categoria }}s</button>
+    </div>
+
+    <!-- Cards das publicações (filtro nativo "filter" por categoria) -->
+    <div class="list card card-noticia"
+         ng-repeat="publicacao in publicacoesFiltradas = (publicacoes | filter:{ categoria: filtro.categoria })">
+
+      <div class="item item-image">
+        <img ng-src="{{ publicacao.imagem }}" alt="{{ publicacao.titulo }}">
+      </div>
+
+      <div class="item item-body">
+        <div class="meta">
+          <span class="badge-categoria"
+                ng-class="{ 'categoria-noticia': publicacao.categoria === 'Notícia',
+                            'categoria-evento': publicacao.categoria === 'Evento' }">
+            <i class="icon" ng-class="publicacao.categoria === 'Evento' ? 'ion-calendar' : 'ion-ios-paper-outline'"></i>
+            {{ publicacao.categoria }}
+          </span>
+          <span><i class="icon ion-clock"></i> {{ publicacao.data | date:'dd/MM/yyyy' }}</span>
+        </div>
+        <h2>{{ publicacao.titulo }}</h2>
+        <p>{{ publicacao.resumo }}</p>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="lerMais(publicacao)">
+          <i class="icon ion-ios-arrow-forward"></i> Ler mais
+        </a>
+      </div>
+    </div>
+
+    <div class="estado-vazio" ng-show="publicacoesFiltradas.length === 0">
+      <i class="icon ion-ios-information-outline"></i>
+      Nenhuma publicação encontrada nesta categoria.
+    </div>
+  </ion-content>
+</ion-view>

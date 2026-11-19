@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f5fae"/><stop offset="1" stop-color="#3fa9f5"/></linearGradient></defs>
+  <rect width="600" height="300" fill="url(#g)"/>
+  <circle cx="540" cy="40" r="110" fill="#fff" opacity=".06"/><circle cx="40" cy="280" r="90" fill="#fff" opacity=".06"/>
+  <circle cx="260" cy="100" r="22" fill="#fff"/><circle cx="340" cy="100" r="22" fill="#fff"/><circle cx="300" cy="90" r="26" fill="#fff"/><path d="M220 185c0-35 20-55 40-55s40 20 40 55z" fill="#fff" opacity=".8"/><path d="M300 185c0-35 20-55 40-55s40 20 40 55z" fill="#fff" opacity=".8"/><path d="M255 190c0-42 20-65 45-65s45 23 45 65z" fill="#fff"/>
+  <text x="300" y="255" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#fff">PROJETO DE EXTENSÃO</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b2a5b"/><stop offset="1" stop-color="#3fa9f5"/></linearGradient></defs>
+  <rect width="600" height="300" fill="url(#g)"/>
+  <circle cx="540" cy="40" r="110" fill="#fff" opacity=".06"/><circle cx="40" cy="280" r="90" fill="#fff" opacity=".06"/>
+  <circle cx="300" cy="125" r="55" fill="none" stroke="#fff" stroke-width="6"/><circle cx="300" cy="125" r="12" fill="#fff"/><ellipse cx="300" cy="125" rx="55" ry="20" fill="none" stroke="#fff" stroke-width="4" transform="rotate(60 300 125)"/><ellipse cx="300" cy="125" rx="55" ry="20" fill="none" stroke="#fff" stroke-width="4" transform="rotate(-60 300 125)"/>
+  <text x="300" y="255" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#fff">SEMOC 2026</text>
+</svg>
