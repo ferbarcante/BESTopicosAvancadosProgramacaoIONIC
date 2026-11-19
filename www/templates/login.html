@@ -1,0 +1,47 @@
+<ion-view view-title="Login" hide-nav-bar="true" can-swipe-back="false">
+  <ion-content class="login-pane" scroll="true">
+    <div class="login-conteudo">
+
+      <div class="login-logo">
+        <img src="img/logo-ucsal.svg" alt="UCSal">
+        <h1>Portal do Aluno</h1>
+        <p>Universidade Católica do Salvador</p>
+      </div>
+
+      <form name="loginForm" class="login-card" novalidate>
+
+        <!-- Mensagem de erro (campos vazios ou credenciais inválidas) -->
+        <div class="mensagem mensagem-erro" ng-if="erro">
+          <i class="icon ion-alert-circled"></i>{{ erro }}
+        </div>
+
+        <div class="list">
+          <label class="item item-input"
+                 ng-class="{ 'campo-invalido': tentouEnviar && !credenciais.matricula }">
+            <i class="icon ion-person placeholder-icon"></i>
+            <input type="text" inputmode="numeric" placeholder="Matrícula"
+                   ng-model="credenciais.matricula" ng-change="limparErro()"
+                   autocomplete="username" maxlength="12">
+          </label>
+
+          <label class="item item-input"
+                 ng-class="{ 'campo-invalido': tentouEnviar && !credenciais.senha }">
+            <i class="icon ion-locked placeholder-icon"></i>
+            <input type="password" placeholder="Senha"
+                   ng-model="credenciais.senha" ng-change="limparErro()"
+                   autocomplete="current-password">
+          </label>
+        </div>
+
+        <button type="submit" class="button button-block button-ucsal" ng-click="entrar()">
+          Entrar
+        </button>
+
+        <p class="login-dica">
+          Acesso de demonstração: matrícula <strong>20261001</strong> / senha <strong>123456</strong>
+        </p>
+      </form>
+
+    </div>
+  </ion-content>
+</ion-view>
