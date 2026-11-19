@@ -1,0 +1,81 @@
+<ion-view view-title="Financeiro">
+  <ion-content>
+
+    <!-- Seletor de semestre letivo -->
+    <div class="list seletor-semestre">
+      <label class="item item-input item-select">
+        <div class="input-label">Semestre letivo</div>
+        <select ng-model="selecao.semestre"
+                ng-options="semestre as semestre for semestre in semestres"
+                ng-change="carregarMensalidades()"></select>
+      </label>
+    </div>
+
+    <!-- Resumo do semestre (filtro currency) -->
+    <div class="resumo-financeiro">
+      <div class="resumo-item resumo-paga">
+        <div class="rotulo">Total pago</div>
+        <div class="valor">{{ totalPago | currency:'R$ ' }}</div>
+      </div>
+      <div class="resumo-item resumo-apagar">
+        <div class="rotulo">Total a pagar</div>
+        <div class="valor">{{ totalAPagar | currency:'R$ ' }}</div>
+      </div>
+    </div>
+
+    <!-- Filtro por status -->
+    <div class="filtro-categorias">
+      <button class="button button-ucsal-outline" ng-class="{ ativo: selecao.status === '' }"
+              ng-click="filtrarStatus('')">Todas</button>
+      <button class="button button-ucsal-outline" ng-class="{ ativo: selecao.status === STATUS.PAGA }"
+              ng-click="filtrarStatus(STATUS.PAGA)">Pagas</button>
+      <button class="button button-ucsal-outline" ng-class="{ ativo: selecao.status === STATUS.A_PAGAR }"
+              ng-click="filtrarStatus(STATUS.A_PAGAR)">A Pagar</button>
+    </div>
+
+    <!-- Lista de mensalidades do semestre (filtro "filter" por status) -->
+    <div class="card card-mensalidade"
+         ng-repeat="mensalidade in mensalidadesFiltradas = (mensalidades | filter:(selecao.status ? { status: selecao.status } : undefined):true) track by mensalidade.id"
+         ng-class="{ 'mensalidade-paga': estaPaga(mensalidade), 'mensalidade-apagar': !estaPaga(mensalidade) }">
+      <div class="item item-text-wrap">
+        <div class="cabecalho">
+          <div>
+            <div class="mes">{{ mensalidade.mes }}</div>
+            <div class="vencimento">
+              Parcela {{ mensalidade.parcela }}/{{ mensalidades.length }} ·
+              Vencimento: {{ mensalidade.vencimento | date:'dd/MM/yyyy' }}
+            </div>
+          </div>
+          <span class="badge-status"
+                ng-class="{ 'status-paga': estaPaga(mensalidade), 'status-apagar': !estaPaga(mensalidade) }">
+            {{ mensalidade.status }}
+          </span>
+        </div>
+
+        <div class="valor-parcela">{{ mensalidade.valor | currency:'R$ ' }}</div>
+
+        <div class="pagamento-info" ng-if="estaPaga(mensalidade)">
+          <i class="icon ion-checkmark-circled"></i>
+          Pago em {{ mensalidade.dataPagamento | date:'dd/MM/yyyy' }}
+        </div>
+
+        <!-- Apenas parcelas "A Pagar" exibem a linha digitável e o botão de cópia -->
+        <div ng-if="!estaPaga(mensalidade)">
+          <div class="linha-digitavel">{{ mensalidade.codigoBarras }}</div>
+          <button class="button button-block button-small button-copiar"
+                  ng-class="{ copiado: copiadoId === mensalidade.id }"
+                  ng-click="copiarCodigo(mensalidade)">
+            <span ng-show="copiadoId !== mensalidade.id"><i class="icon ion-ios-copy-outline"></i> Copiar Código de Barras</span>
+            <span ng-show="copiadoId === mensalidade.id"><i class="icon ion-checkmark"></i> Copiado!</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="estado-vazio" ng-show="mensalidadesFiltradas.length === 0">
+      <i class="icon ion-ios-checkmark-outline"></i>
+      Nenhuma mensalidade encontrada para este filtro.
+    </div>
+
+  </ion-content>
+</ion-view>
