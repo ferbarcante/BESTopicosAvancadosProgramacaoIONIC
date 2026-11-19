@@ -1,0 +1,85 @@
+<ion-view view-title="Meu Cadastro">
+  <ion-content>
+    <form name="perfilForm" novalidate>
+
+      <!-- Dados institucionais: somente leitura -->
+      <div class="secao-titulo">Dados institucionais</div>
+      <div class="list list-ucsal">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label"><i class="icon ion-person"></i> Nome completo</span>
+          <input type="text" ng-model="aluno.nome" ng-disabled="true">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label"><i class="icon ion-pound"></i> Matrícula</span>
+          <input type="text" ng-model="aluno.matricula" ng-disabled="true">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label"><i class="icon ion-university"></i> Curso</span>
+          <input type="text" ng-model="aluno.curso" ng-disabled="true">
+        </label>
+      </div>
+
+      <!-- Contato: editável -->
+      <div class="secao-titulo">Contato</div>
+      <div class="list list-ucsal">
+        <label class="item item-input item-stacked-label"
+               ng-class="{ 'campo-invalido': perfilForm.email.$invalid && perfilForm.email.$touched }">
+          <span class="input-label"><i class="icon ion-email"></i> E-mail pessoal</span>
+          <input type="email" name="email" placeholder="seu@email.com"
+                 ng-model="aluno.email" required>
+        </label>
+        <label class="item item-input item-stacked-label"
+               ng-class="{ 'campo-invalido': perfilForm.telefone.$invalid && perfilForm.telefone.$touched }">
+          <span class="input-label"><i class="icon ion-social-whatsapp-outline"></i> Telefone / WhatsApp</span>
+          <input type="tel" name="telefone" placeholder="(71) 99999-9999"
+                 ng-model="aluno.telefone" required
+                 ng-pattern="/^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/">
+        </label>
+      </div>
+      <div class="ajuda-campo" ng-show="perfilForm.email.$invalid && perfilForm.email.$touched">
+        Informe um e-mail válido.
+      </div>
+      <div class="ajuda-campo" ng-show="perfilForm.telefone.$invalid && perfilForm.telefone.$touched">
+        Informe o telefone com DDD, ex.: (71) 99999-9999.
+      </div>
+
+      <!-- Endereço: editável -->
+      <div class="secao-titulo">Endereço</div>
+      <div class="list list-ucsal">
+        <label class="item item-input item-stacked-label"
+               ng-class="{ 'campo-invalido': perfilForm.cep.$invalid && perfilForm.cep.$touched }">
+          <span class="input-label"><i class="icon ion-location"></i> CEP</span>
+          <input type="text" inputmode="numeric" name="cep" placeholder="00000-000"
+                 ng-model="aluno.endereco.cep" required ng-pattern="/^\d{5}-?\d{3}$/" maxlength="9">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Rua / Número</span>
+          <input type="text" name="rua" ng-model="aluno.endereco.rua" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Bairro</span>
+          <input type="text" name="bairro" ng-model="aluno.endereco.bairro" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Cidade</span>
+          <input type="text" name="cidade" ng-model="aluno.endereco.cidade" required>
+        </label>
+      </div>
+      <div class="ajuda-campo" ng-show="perfilForm.cep.$invalid && perfilForm.cep.$touched">
+        Informe um CEP válido, ex.: 41740-090.
+      </div>
+
+      <div class="acoes-rodape">
+        <button type="submit" class="button button-block button-ucsal"
+                ng-click="salvar(perfilForm)"
+                ng-disabled="!houveAlteracao() || perfilForm.$invalid">
+          <i class="icon ion-checkmark"></i> Salvar Alterações
+        </button>
+        <button type="button" class="button button-block button-ucsal-outline"
+                ng-show="houveAlteracao()" ng-click="descartar(perfilForm)">
+          Descartar alterações
+        </button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
